@@ -8,6 +8,22 @@ app = Flask(__name__)
 app.register_blueprint(bill)
 app.register_blueprint(user)
 
+"""Documentando el metodo"""
+@app.route('/login2', methods=['POST'])
+def login2():
+
+    request_data = request.get_json()
+    username = request_data['username']
+    password = request_data['password']
+    user = user_service.login(username, password)
+    
+    if(user):
+        user.password = "*****"
+
+    return user_schema.dump(user)
+
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
 
