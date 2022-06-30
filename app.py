@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.register_blueprint(bill)
 app.register_blueprint(user)
 
-"""Documentando el mtodo"""
+""""""
 @app.route('/login2', methods=['POST'])
 def login2():
 
